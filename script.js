@@ -5,7 +5,7 @@
 
 // ─── CONFIG ─────────────────────────────────
 // Replace with your Google Apps Script Web App URL after deploying
-const GOOGLE_SHEETS_URL = '';
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyvW3Ynlju7f4kqupu2zPL_-UCg_sapSBP4lvcV4kNCvc-LMR2yh2CMChJu5O63cS4w/exec';
 
 // ─── QUIZ DATA ──────────────────────────────
 const QUESTIONS = [
