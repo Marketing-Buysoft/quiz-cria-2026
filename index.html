@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubra seu perfil criativo no CRIA Senac SP 2026. Quiz interativo by Buysoft × SketchUp.">
+  <meta name="theme-color" content="#050508">
+  <title>Qual Seu Perfil Criativo? | Buysoft × CRIA 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient background -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb ambient-orb--1"></div>
+    <div class="ambient-orb ambient-orb--2"></div>
+    <div class="ambient-orb ambient-orb--3"></div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="progress-bar" id="progress-bar" aria-hidden="true">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+
+  <main id="app">
+
+    <!-- SCREEN: Welcome -->
+    <section class="screen active" id="screen-welcome" aria-label="Tela de boas-vindas">
+      <div class="screen-content">
+        <div class="brand-logos">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/logo_buysoft_comprimed_7e635e0c91.svg" alt="Buysoft" class="brand-logo logo-buysoft">
+          <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Logo_Trimble_Sketch_Up_af91fe89c3.svg" alt="Trimble SketchUp" class="brand-logo logo-trimble">
+        </div>
+        <h1 class="hero-title">
+          Qual Seu<br>
+          <span class="gradient-text">Perfil Criativo</span>?
+        </h1>
+        <p class="hero-subtitle">
+          Responda 3 perguntas rápidas e descubra seu perfil criativo e o sabor de picolé que combina com o seu jeito de criar.
+        </p>
+        <p class="hero-detail">3 perguntas · 30 segundos</p>
+        <button class="btn-primary" id="btn-start" type="button">
+          Descobrir meu perfil
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SCREEN: Quiz questions -->
+    <section class="screen" id="screen-quiz" aria-label="Perguntas do quiz">
+      <div class="screen-content">
+        <div class="question-counter">
+          Pergunta <span id="q-current">1</span> de 3
+        </div>
+        <h2 class="question-text" id="question-text"></h2>
+        <div class="options" id="options-container" role="radiogroup"></div>
+      </div>
+    </section>
+
+    <!-- SCREEN: Contact form -->
+    <section class="screen" id="screen-contact" aria-label="Formulário de contato">
+      <div class="screen-content">
+        <div class="form-header">
+          <div class="form-icon">✦</div>
+          <h2>Seu perfil está pronto</h2>
+          <p class="form-subtitle">Preencha seus dados para ver o resultado agora mesmo.</p>
+        </div>
+        <form id="contact-form" novalidate>
+          <div class="form-group">
+            <input type="text" id="field-name" name="name" required autocomplete="name" placeholder=" ">
+            <label for="field-name">Seu nome</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="field-email" name="email" required autocomplete="email" placeholder=" ">
+            <label for="field-email">Seu melhor e-mail</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="field-phone" name="phone" required autocomplete="tel" placeholder=" ">
+            <label for="field-phone">WhatsApp (com DDD)</label>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" id="field-course" name="course" placeholder=" ">
+              <label for="field-course">Curso / Área</label>
+            </div>
+            <div class="form-group">
+              <input type="text" id="field-institution" name="institution" placeholder=" ">
+              <label for="field-institution">Instituição</label>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary btn-submit">
+            Ver meu perfil
+            <span class="btn-arrow">→</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- SCREEN: Loading -->
+    <section class="screen" id="screen-loading" aria-label="Calculando resultado">
+      <div class="screen-content screen-content--center">
+        <div class="loader">
+          <div class="loader-ring"></div>
+          <div class="loader-ring"></div>
+          <div class="loader-ring"></div>
+        </div>
+        <p class="loader-text">Analisando suas respostas<span class="dots"></span></p>
+      </div>
+    </section>
+
+    <!-- SCREEN: Result -->
+    <section class="screen" id="screen-result" aria-label="Resultado do perfil">
+      <div class="screen-content">
+        <div class="result-card" id="result-card">
+          <div class="result-overline">Seu perfil criativo</div>
+          <div class="result-emoji" id="result-emoji"></div>
+          <h1 class="result-name" id="result-name"></h1>
+          <p class="result-description" id="result-description"></p>
+
+          <div class="result-powers" id="result-powers">
+            <h3>Superpoderes</h3>
+            <ul id="result-powers-list"></ul>
+          </div>
+
+          <blockquote class="result-quote" id="result-quote"></blockquote>
+        </div>
+
+        <footer class="result-footer">
+          <div class="brand-logos brand-logos--footer">
+            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/logo_buysoft_comprimed_7e635e0c91.svg" alt="Buysoft" class="brand-logo logo-buysoft">
+            <img src="https://cdn-endpoint-ecommerce-buysoft-prd.azureedge.net/assets/uploads/Logo_Trimble_Sketch_Up_af91fe89c3.svg" alt="Trimble SketchUp" class="brand-logo logo-trimble">
+          </div>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
